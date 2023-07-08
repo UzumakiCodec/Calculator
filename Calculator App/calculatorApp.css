@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calc-body{
+    width: 30%;
+    height: 100vh;
+    border: 5px solid black;
+    border-radius: 30px;
+    margin: 0 auto;
+    /* position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    background-color: black;
+}
+
+.container{
+    width: 95%;
+    height: 35vh;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin: 10px auto;
+    margin-bottom: 0;
+    /* background-color: rgb(166, 157, 166); */
+    background-color: #b1a9a9;
+}
+
+ .m img,  .w img, .b img{
+    width: 20px;
+    height: 20px;
+    /* background-color: white; */
+    /* padding: 0 3px; */
+}
+
+.up-bar{
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    border-radius: 15px;
+    margin-left: 40px;
+    
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 15px;
+}
+
+.nw-icons{
+    display: flex;
+    justify-content: space-around;
+    width: 80px;
+}
+
+.nav p, .nw-icons{
+    margin-top: 5px;
+    color: white;
+}
+
+.comp{
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    padding-top: 10px;
+}
+
+.in{
+    /* border: 1px solid rgb(20, 150, 55); */
+    margin-top: 10px;
+    padding-right: 10px;
+}
+.out{
+    /* border: 1px solid rgb(20, 150, 55); */
+    padding-right: 10px;   
+}
+
+.in input, .out input{
+    padding: 0 10px;
+    padding-top: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.5em;
+    background: transparent;
+    text-align: right;
+    color: white;
+    width: 99%;
+}
+.in input{
+    font-size: 1em;
+}
+
+.bar-icon{
+    width: 60px;
+    height: 8px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+/* =========== footer Section ============ */
+.footer-container{
+    width: 95%;
+    height: 60vh;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin: 0 auto;
+    
+    /* background-color: #dfdfdf; */
+}
+.footer-container input{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.funct-div{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.funct-div > *{
+    width: 45px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    color: rgba(15, 152, 232, 0.733);
+    background-color: #dfdfdf;
+    text-align: center;
+}
+.func{
+    transition: all .07s ease;
+}
+
+.main-div{
+    margin: 10px;
+    /* display: flex; */
+    justify-content: space-around;
+   
+}
+
+/* ======= styling the btns ======= */
+/* === flex 1 & 2 === */
+.flex1, .flex2, .flex3, .flex4, .flex5, .flex6{
+   display: flex;
+   justify-content: space-around;
+}
+.flex1 > *, .flex2 > *, .flex3 > *, .flex4 > *, .flex5 > *, .flex6 > *{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgba(135, 207, 235, 0.713);
+    margin: 5px 0;
+}
+
+/* === flex 6 === */
+.flex6{
+    flex-direction: column;
+    /* background-color: red; */
+    width: 70px;
+}
+.flex6 > *{
+    width: 50px;
+    height: 80px;
+}
+
+/* === flex 3, 4 & 5 === */
+.cols{
+    display: flex;
+    justify-content: space-around;
+    /* background-color: #dfdfdf; */
+}
+.col1{
+    /* display: flex; 
+    justify-content: space-between; */
+    /* background-color: blueviolet; */
+    width: 280px;
+    padding-right: 18px;
+}
+
+.btn15{
+    width: 132px;
+    height: 50px; 
+}
+
+.btn{
+    border: .5px solid rgba(255, 255, 255, 0.615);
+    color: white;
+    transition: all .07s ease;
+}
+
+.btn1, .btn4, .btn8, .btn17{
+    background-color: rgb(251, 177, 5);
+}
+
+.btn15, .btn16, .btn2, .btn3, .btn5, .btn6, .btn7, .btn9, .btn10, .btn11, .btn12, .btn13, .btn14{
+    background-color: #b1a9a9c0;
+}
+
+.btn18{
+    background-color: rgb(251, 177, 5); 
+    border: .5px solid rgba(255, 255, 255, 0.615);
+    color: white;
+    transition: all .07s ease;
+}
+
+/* =====btn animation ====== */
+.playing{
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}

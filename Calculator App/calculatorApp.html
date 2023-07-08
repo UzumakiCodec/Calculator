@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculatorApp.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="calc-body">
+        <!-- ================= Calc Screen ================== -->
+        <header>
+            <section class="container">
+                <nav class="nav"><p>9:41</p><div class="up-bar"></div>
+                    <div class="nw-icons">
+                        <div class="m"><img src="app_icons/mobile-network-no-signal.256x256.png" alt=""></div>
+                        <div class="w"><img src="app_icons/wifi-signal-none.1024x819.png" alt=""></div>
+                        <div class="b"><img src="app_icons/battery.1024x512.png" alt=""></div>
+                    </div>
+                </nav>
+                <div class="comp">
+                    <div class="in"><input id="input" type="text" value=""></div>
+                    <div  class="out"><input id="output" type="text" value=""></div>
+                </div>
+                <div class="bar-icon">
+                    <img src="#" alt="">
+                </div>
+            </section>
+        </header>
+
+        <!-- ================= Calc Buttons ================== -->
+        <footer>
+            <section class="footer-container">
+                <div class="funct-div">
+                    <input type="button" class=" func" value="e">
+                    <input type="button" class=" func" value="μ">
+                    <input type="button" class=" func" value="sin">
+                    <input type="button" class=" func" value="deg">
+                    <input type="button" class=" func" value="^">
+                </div>
+                <div class="main-div">
+                    <div class="flex1">
+                        <input type="button" class="btn btn1" value="Ac">
+                        <input type="button" class="btn btn2" value="del">
+                        <input type="button" class="btn btn3" value="/">
+                        <input type="button" class="btn btn4" value="*">
+                    </div>    
+                    <div class="flex2">
+                        <input type="button" class="btn btn5" value="7">
+                        <input type="button" class="btn btn6" value="8">
+                        <input type="button" class="btn btn7" value="9">
+                        <input type="button" class="btn btn8" value="-">
+                    </div>
+                    
+                    <div class="cols">
+                        <div class="col1">
+                            <div class="flex3">
+                                <input type="button" class="btn btn9" value="4">
+                                <input type="button" class="btn btn10" value="5">
+                                <input type="button" class="btn btn11" value="6">
+                            </div>
+                            <div class="flex4">
+                                <input type="button" class="btn btn12" value="1">
+                                <input type="button" class="btn btn13" value="2">
+                                <input type="button" class="btn btn14" value="3">
+                            </div>
+        
+                            <div class="flex5">
+                                <input type="button" class="btn btn15" value="0">
+                                <input type="button" class="btn btn16" value=".">    
+                            </div>
+                        </div>
+                        
+                        <div class="flex6">
+                            <input type="button" class="btn btn17" value="+">
+                            <input type="button" class="btn18" value="=">    
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </footer>
+    </div>
+
+    <script>
+        // selecting the rqd selectors
+        const inputs = document.getElementById("input");
+        const output = document.getElementById("output");
+        const buttons = document.querySelectorAll(".btn");
+        const equals = document.querySelector(".btn18");
+
+        // if(output.length > 0){
+        //     alert("Yes " + output.value);
+        // }else{
+        //     alert("No " + output.value);
+        // };
+        // Math.sin(0);  
+       
+        // Equal buttn animation
+        equals.addEventListener("click", () => {
+            output.value = "=" + eval(inputs.value);
+            equals.classList.add('playing');
+            
+                equals.addEventListener('transitionend', (e) => {
+                    if (e.propertyName !== 'transform') return;
+                e.target.classList.remove('playing');
+                });
+        });
+       
+
+        // main-div button animation
+        Array.from(
+            document.querySelectorAll(".btn")
+        )
+        .forEach(
+            (btn) => {
+                btn.addEventListener('transitionend', (e) => {
+                    if (e.propertyName !== 'transform') return;
+                e.target.classList.remove('playing');
+                });
+            }
+        );
+
+        for(i=0; i<buttons.length; i++){
+            buttons[i].addEventListener('click', (e) => {
+                // inputs.value = inputs.value + e.target.value;
+                event.target.classList.add('playing');  
+                
+            });
+        };
+
+        
+        // func-div button animation
+        Array.from(
+            document.querySelectorAll(".func")
+        )
+        .forEach(
+            (func) => {
+                func.addEventListener('click', (e) =>{
+            e.target.classList.add('playing');
+        });
+
+                func.addEventListener('transitionend', (e) => {
+                    if (e.propertyName !== 'transform') return;
+                e.target.classList.remove('playing');
+                });
+            }
+        );
+        
+       
+         // Creating Array for main-div buttons
+        Array.from(
+            document.querySelectorAll(".btn")
+        )
+        .forEach(
+            (btn) => {
+                btn.addEventListener('click', handler);
+            }
+        );
+
+        // Creating Array for func-div buttons
+        Array.from(
+            document.querySelectorAll(".func")
+        )
+        .forEach(
+            (func) => {
+                func.addEventListener('click', handler);
+            }
+        );
+
+        function handler(event){
+            const value = event.target.value;
+
+            switch (value) {
+                case "del":
+                    inputs.value = inputs.value.slice(0, -1)
+                    break;
+
+                case "Ac":
+                    inputs.value = output.value = "";
+                    break;
+
+                case "sin":
+                    output.value = Math.sin(inputs.value);
+                    inputs.value = "sin(" + inputs.value;
+                    break;
+
+                case "μ":
+                    inputs.value = 0.000001;
+                    break;
+
+                case "e":
+                    inputs.value = 2.71828182;
+                    break;
+            
+                default:
+                    inputs.value += value;
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
